@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="NeRGiR" name="Musico" projectType="araaudioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="CBC7Hb" name="Musico">
+    <GROUP id="{E9494DD3-8427-630D-52A1-581E51108C25}" name="Source">
+      <FILE id="XzaA5k" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="OUVmy3" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="Nt6bwX" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="TCBfkQ" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="dNr4zS" name="PluginARADocumentController.cpp" compile="1"
+            resource="0" file="Source/PluginARADocumentController.cpp"/>
+      <FILE id="c3PZIC" name="PluginARADocumentController.h" compile="0"
+            resource="0" file="Source/PluginARADocumentController.h"/>
+      <FILE id="OkwUsb" name="PluginARAPlaybackRenderer.cpp" compile="1"
+            resource="0" file="Source/PluginARAPlaybackRenderer.cpp"/>
+      <FILE id="MU7Vpo" name="PluginARAPlaybackRenderer.h" compile="0" resource="0"
+            file="Source/PluginARAPlaybackRenderer.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_analytics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_animation" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_box2d" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_javascript" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_product_unlocking" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2026 targetFolder="Builds/VisualStudio2026">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Musico"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Musico"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_analytics" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_animation" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_box2d" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_javascript" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_midi_ci" path="../../../AppData/Local/JUCE/modules"/>
+        <MODULEPATH id="juce_product_unlocking" path="../../../AppData/Local/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2026>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
