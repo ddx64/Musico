@@ -15,16 +15,14 @@ MusicoAudioProcessorEditor::MusicoAudioProcessorEditor(MusicoAudioProcessor& p)
 #if JucePlugin_Enable_ARA
 	AudioProcessorEditorARAExtension(&p),
 #endif
-	audioProcessor(p), midiKeyboard(audioProcessor.getKeyboardState(), juce::MidiKeyboardComponent::horizontalKeyboard)
+	audioProcessor(p), pianoKeyboardView(audioProcessor.getKeyboardState())
 {
 #if JucePlugin_Enable_ARA
 	// ARA plugins must be resizable for proper view embedding
 	setResizable(true, false);
 #endif
 
-	// Key range A0-C8
-	midiKeyboard.setAvailableRange(21, 108);
-	addAndMakeVisible(midiKeyboard);
+	addAndMakeVisible(pianoKeyboardView);
 
 	// Make sure that before the constructor has finished, you've set the
 	// editor's size to whatever you need it to be.
@@ -50,5 +48,5 @@ void MusicoAudioProcessorEditor::resized()
 {
 	// This is generally where you'll want to lay out the positions of any
 	// subcomponents in your editor..
-	midiKeyboard.setBounds(getLocalBounds());
+	pianoKeyboardView.setBounds(getLocalBounds());
 }

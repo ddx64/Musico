@@ -2,6 +2,18 @@
 
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Musico\Source\core">
+      <UniqueIdentifier>{C7E0EC65-4B15-3980-9EE5-15A61850D560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Musico\Source\io">
+      <UniqueIdentifier>{2BC1439F-C4C0-69CE-C8EE-D7077648905D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Musico\Source\ui">
+      <UniqueIdentifier>{79F529E9-C04D-D384-B12A-84633A7CE9A9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Musico\Source\plugin">
+      <UniqueIdentifier>{E110B735-7AEC-A5D3-EC33-6FF3F820E10C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Musico\Source">
       <UniqueIdentifier>{9912FD99-7E82-3CD1-F617-680E94A465B8}</UniqueIdentifier>
     </Filter>
@@ -811,17 +823,32 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
-      <Filter>Musico\Source</Filter>
+    <ClCompile Include="..\..\Source\ARAInputAdapter.cpp">
+      <Filter>Musico\Source\io</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
-      <Filter>Musico\Source</Filter>
+    <ClCompile Include="..\..\Source\AudioInputAdapter.cpp">
+      <Filter>Musico\Source\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FeatureExtractor.cpp">
+      <Filter>Musico\Source\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
+      <Filter>Musico\Source\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PianoKeyboardView.cpp">
+      <Filter>Musico\Source\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginARADocumentController.cpp">
-      <Filter>Musico\Source</Filter>
+      <Filter>Musico\Source\plugin</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginARAPlaybackRenderer.cpp">
-      <Filter>Musico\Source</Filter>
+      <Filter>Musico\Source\plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
+      <Filter>Musico\Source\plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+      <Filter>Musico\Source\plugin</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\analytics\juce_Analytics.cpp">
       <Filter>JUCE Modules\juce_analytics\analytics</Filter>
@@ -4152,17 +4179,35 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\PluginProcessor.h">
-      <Filter>Musico\Source</Filter>
+    <ClInclude Include="..\..\Source\Types.h">
+      <Filter>Musico\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
-      <Filter>Musico\Source</Filter>
+    <ClInclude Include="..\..\Source\ARAInputAdapter.h">
+      <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AudioInputAdapter.h">
+      <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FeatureExtractor.h">
+      <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MidiInputAdapter.h">
+      <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PianoKeyboardView.h">
+      <Filter>Musico\Source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginARADocumentController.h">
-      <Filter>Musico\Source</Filter>
+      <Filter>Musico\Source\plugin</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginARAPlaybackRenderer.h">
-      <Filter>Musico\Source</Filter>
+      <Filter>Musico\Source\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginProcessor.h">
+      <Filter>Musico\Source\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>Musico\Source\plugin</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\analytics\juce_Analytics.h">
       <Filter>JUCE Modules\juce_analytics\analytics</Filter>

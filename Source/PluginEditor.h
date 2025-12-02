@@ -10,6 +10,7 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
+#include "PianoKeyboardView.h"
 
 //==============================================================================
 /**
@@ -35,7 +36,7 @@ private:
 	/*********************************************************************************
 	* Add functions and variables here
 	*********************************************************************************/
-	juce::MidiKeyboardComponent midiKeyboard;
+	PianoKeyboardView pianoKeyboardView;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MusicoAudioProcessorEditor)
 

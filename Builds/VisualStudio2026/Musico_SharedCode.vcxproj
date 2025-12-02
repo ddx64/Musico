@@ -144,10 +144,15 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\ARAInputAdapter.cpp"/>
+    <ClCompile Include="..\..\Source\AudioInputAdapter.cpp"/>
+    <ClCompile Include="..\..\Source\FeatureExtractor.cpp"/>
+    <ClCompile Include="..\..\Source\MidiInputAdapter.cpp"/>
+    <ClCompile Include="..\..\Source\PianoKeyboardView.cpp"/>
     <ClCompile Include="..\..\Source\PluginARADocumentController.cpp"/>
     <ClCompile Include="..\..\Source\PluginARAPlaybackRenderer.cpp"/>
+    <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\analytics\juce_Analytics.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3276,10 +3281,16 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_product_unlocking.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\PluginProcessor.h"/>
-    <ClInclude Include="..\..\Source\PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\Types.h"/>
+    <ClInclude Include="..\..\Source\ARAInputAdapter.h"/>
+    <ClInclude Include="..\..\Source\AudioInputAdapter.h"/>
+    <ClInclude Include="..\..\Source\FeatureExtractor.h"/>
+    <ClInclude Include="..\..\Source\MidiInputAdapter.h"/>
+    <ClInclude Include="..\..\Source\PianoKeyboardView.h"/>
     <ClInclude Include="..\..\Source\PluginARADocumentController.h"/>
     <ClInclude Include="..\..\Source\PluginARAPlaybackRenderer.h"/>
+    <ClInclude Include="..\..\Source\PluginProcessor.h"/>
+    <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\analytics\juce_Analytics.h"/>
     <ClInclude Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\analytics\juce_ButtonTracker.h"/>
     <ClInclude Include="..\..\..\..\..\AppData\Local\JUCE\modules\juce_analytics\destinations\juce_AnalyticsDestination.h"/>
