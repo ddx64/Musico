@@ -15,18 +15,28 @@ MusicoAudioProcessorEditor::MusicoAudioProcessorEditor(MusicoAudioProcessor& p)
 #if JucePlugin_Enable_ARA
 	AudioProcessorEditorARAExtension(&p),
 #endif
-	audioProcessor(p), pianoKeyboardView(audioProcessor.getKeyboardState())
+	audioProcessor(p),
+	midiKeyboard(audioProcessor.getKeyboardState(), juce::MidiKeyboardComponent::horizontalKeyboard)
 {
 #if JucePlugin_Enable_ARA
 	// ARA plugins must be resizable for proper view embedding
 	setResizable(true, false);
+	getConstrainer()->setMinimumSize(600, 400);
 #endif
+	// UI components setup
+	midiKeyboard.setAvailableRange(21, 108); // A0 to C8
 
-	addAndMakeVisible(pianoKeyboardView);
+	chordLabel.setFont(juce::Font(24.0f, juce::Font::bold));
+	chordLabel.setJustificationType(juce::Justification::centred);
 
-	// Make sure that before the constructor has finished, you've set the
-	// editor's size to whatever you need it to be.
-	setSize(1200, 200);
+	// Mount components
+	addAndMakeVisible(midiKeyboard);
+	addAndMakeVisible(chordLabel);
+	//addAndMakeVisible(webViewPlaceHolder);
+
+	// Global configurations
+	setSize(800, 200);
+	startTimerHz(20);
 }
 
 MusicoAudioProcessorEditor::~MusicoAudioProcessorEditor()
@@ -46,7 +56,23 @@ void MusicoAudioProcessorEditor::paint(juce::Graphics& g)
 
 void MusicoAudioProcessorEditor::resized()
 {
-	// This is generally where you'll want to lay out the positions of any
-	// subcomponents in your editor..
-	pianoKeyboardView.setBounds(getLocalBounds());
+	// This is generally where you'll want to lay out the positions of any subcomponents in your editor..
+	auto area = getLocalBounds();
+
+	const int keyboardHeight = 80;
+	auto keyboardArea = area.removeFromBottom(keyboardHeight);
+	// Calculate key width based on white keys, assuming 52 white keys on a 88 keyboard
+	float keyWidth = keyboardArea.getWidth() / 52.0;
+	midiKeyboard.setKeyWidth(keyWidth);
+	midiKeyboard.setBounds(keyboardArea);
+
+	const int chordLabelHeight = 40;
+	auto topArea = area.removeFromBottom(chordLabelHeight);
+	chordLabel.setBounds(topArea);
+
+}
+
+void MusicoAudioProcessorEditor::timerCallback()
+{
+	chordLabel.setText("CMaj7", juce::dontSendNotification);
 }

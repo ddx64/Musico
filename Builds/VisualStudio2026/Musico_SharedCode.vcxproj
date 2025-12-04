@@ -148,7 +148,6 @@
     <ClCompile Include="..\..\Source\AudioInputAdapter.cpp"/>
     <ClCompile Include="..\..\Source\FeatureExtractor.cpp"/>
     <ClCompile Include="..\..\Source\MidiInputAdapter.cpp"/>
-    <ClCompile Include="..\..\Source\PianoKeyboardView.cpp"/>
     <ClCompile Include="..\..\Source\PluginARADocumentController.cpp"/>
     <ClCompile Include="..\..\Source\PluginARAPlaybackRenderer.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
@@ -3286,7 +3285,6 @@
     <ClInclude Include="..\..\Source\AudioInputAdapter.h"/>
     <ClInclude Include="..\..\Source\FeatureExtractor.h"/>
     <ClInclude Include="..\..\Source\MidiInputAdapter.h"/>
-    <ClInclude Include="..\..\Source\PianoKeyboardView.h"/>
     <ClInclude Include="..\..\Source\PluginARADocumentController.h"/>
     <ClInclude Include="..\..\Source\PluginARAPlaybackRenderer.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>

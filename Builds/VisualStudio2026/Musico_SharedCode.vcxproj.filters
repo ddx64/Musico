@@ -8,9 +8,6 @@
     <Filter Include="Musico\Source\io">
       <UniqueIdentifier>{2BC1439F-C4C0-69CE-C8EE-D7077648905D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Musico\Source\ui">
-      <UniqueIdentifier>{79F529E9-C04D-D384-B12A-84633A7CE9A9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Musico\Source\plugin">
       <UniqueIdentifier>{E110B735-7AEC-A5D3-EC33-6FF3F820E10C}</UniqueIdentifier>
     </Filter>
@@ -834,9 +831,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PianoKeyboardView.cpp">
-      <Filter>Musico\Source\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginARADocumentController.cpp">
       <Filter>Musico\Source\plugin</Filter>
@@ -4193,9 +4187,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\MidiInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PianoKeyboardView.h">
-      <Filter>Musico\Source\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginARADocumentController.h">
       <Filter>Musico\Source\plugin</Filter>

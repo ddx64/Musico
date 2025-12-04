@@ -25,12 +25,7 @@
         <FILE id="Os39Av" name="MidiInputAdapter.h" compile="0" resource="0"
               file="Source/MidiInputAdapter.h"/>
       </GROUP>
-      <GROUP id="{D051BA52-A1D7-A44E-5D82-7603FC48A0BB}" name="ui">
-        <FILE id="WLTLW0" name="PianoKeyboardView.cpp" compile="1" resource="0"
-              file="Source/PianoKeyboardView.cpp"/>
-        <FILE id="AmHMbS" name="PianoKeyboardView.h" compile="0" resource="0"
-              file="Source/PianoKeyboardView.h"/>
-      </GROUP>
+      <GROUP id="{D051BA52-A1D7-A44E-5D82-7603FC48A0BB}" name="ui"/>
       <GROUP id="{1E4A040D-81FF-A112-473F-B398F4538E7E}" name="harmony"/>
       <GROUP id="{E938B43B-CEF9-D561-5832-C29FA5F15C6C}" name="models"/>
       <GROUP id="{16290BCC-7963-57E6-CE22-6C93434045A7}" name="plugin">
