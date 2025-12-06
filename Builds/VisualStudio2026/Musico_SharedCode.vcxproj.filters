@@ -8,6 +8,9 @@
     <Filter Include="Musico\Source\io">
       <UniqueIdentifier>{2BC1439F-C4C0-69CE-C8EE-D7077648905D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Musico\Source\models">
+      <UniqueIdentifier>{7F89CBE8-64E5-9C1C-CA1A-6B07847A28DF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Musico\Source\plugin">
       <UniqueIdentifier>{E110B735-7AEC-A5D3-EC33-6FF3F820E10C}</UniqueIdentifier>
     </Filter>
@@ -826,11 +829,11 @@
     <ClCompile Include="..\..\Source\AudioInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\FeatureExtractor.cpp">
-      <Filter>Musico\Source\io</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FeatureExtractor.cpp">
+      <Filter>Musico\Source\models</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginARADocumentController.cpp">
       <Filter>Musico\Source\plugin</Filter>
@@ -4182,11 +4185,11 @@
     <ClInclude Include="..\..\Source\AudioInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\FeatureExtractor.h">
-      <Filter>Musico\Source\io</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\MidiInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FeatureExtractor.h">
+      <Filter>Musico\Source\models</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginARADocumentController.h">
       <Filter>Musico\Source\plugin</Filter>

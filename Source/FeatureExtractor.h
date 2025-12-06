@@ -1,11 +1,25 @@
 /*
   ==============================================================================
 
-    FeatureExtractor.h
-    Created: 3 Dec 2025 3:24:04am
-    Author:  r3dda
+	FeatureExtractor.h
+	Created: 3 Dec 2025 3:24:04am
+	Author:  r3dda
 
   ==============================================================================
 */
 
 #pragma once
+
+namespace musico::models
+{
+	//==============================================================================
+	/**
+	*/
+	class FeatureExtractor
+	{
+	public:
+
+	private:
+	
+	};
+}

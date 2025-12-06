@@ -1,11 +1,25 @@
 /*
   ==============================================================================
 
-    MidiInputAdapter.cpp
-    Created: 3 Dec 2025 3:23:03am
-    Author:  r3dda
+	MidiInputAdapter.cpp
+	Created: 3 Dec 2025 3:23:03am
+	Author:  r3dda
 
   ==============================================================================
 */
 
 #include "MidiInputAdapter.h"
+
+namespace musico::io
+{
+	//==============================================================================
+	MidiInputAdapter::MidiInputAdapter()
+	{
+	}
+
+	MidiInputAdapter::~MidiInputAdapter()
+	{
+	}
+
+	//==============================================================================
+}

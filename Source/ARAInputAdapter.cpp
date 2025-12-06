@@ -1,11 +1,26 @@
 /*
   ==============================================================================
 
-    ARAInputAdapter.cpp
-    Created: 3 Dec 2025 3:23:38am
-    Author:  r3dda
+	ARAInputAdapter.cpp
+	Created: 3 Dec 2025 3:23:38am
+	Author:  r3dda
 
   ==============================================================================
 */
 
 #include "ARAInputAdapter.h"
+
+namespace musico::io
+{
+	//==============================================================================
+	ARAInputAdapter::ARAInputAdapter()
+	{
+	}
+
+	ARAInputAdapter::~ARAInputAdapter()
+	{
+	}
+
+	//==============================================================================
+
+}

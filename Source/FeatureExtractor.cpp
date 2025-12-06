@@ -1,11 +1,16 @@
 /*
   ==============================================================================
 
-    FeatureExtractor.cpp
-    Created: 3 Dec 2025 3:24:04am
-    Author:  r3dda
+	FeatureExtractor.cpp
+	Created: 3 Dec 2025 3:24:04am
+	Author:  r3dda
 
   ==============================================================================
 */
 
 #include "FeatureExtractor.h"
+
+namespace musico::models
+{
+
+}

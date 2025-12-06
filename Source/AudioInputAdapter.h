@@ -1,11 +1,29 @@
 /*
   ==============================================================================
 
-    AudioInputAdapter.h
-    Created: 3 Dec 2025 3:23:23am
-    Author:  r3dda
+	AudioInputAdapter.h
+	Created: 3 Dec 2025 3:23:23am
+	Author:  r3dda
 
   ==============================================================================
 */
 
 #pragma once
+
+namespace musico::io
+{
+	//==============================================================================
+	/**
+	*/
+	class AudioInputAdapter
+	{
+	public:
+		explicit AudioInputAdapter();
+		~AudioInputAdapter();
+
+		//==============================================================================
+
+	private:
+
+	};
+}
