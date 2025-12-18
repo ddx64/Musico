@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include "JuceHeader.h"
+
 namespace musico::io
 {
 	//==============================================================================
@@ -22,8 +24,10 @@ namespace musico::io
 		~AudioInputAdapter();
 
 		//==============================================================================
+		void processBlock(const juce::AudioBuffer<float>& audioBuffer, double sampleRate, int64_t blockStartSample);
 
 	private:
+
 
 	};
 }

@@ -129,12 +129,24 @@ bool MusicoAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) co
 }
 #endif
 
-void MusicoAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void MusicoAudioProcessor::processBlock(juce::AudioBuffer<float>& audioBuffer, juce::MidiBuffer& midiBuffer)
 {
 	juce::ScopedNoDenormals noDenormals;
 	auto totalNumInputChannels = getTotalNumInputChannels();
 	auto totalNumOutputChannels = getTotalNumOutputChannels();
 
+	/***************************************************************************
+	* This is the place where you'd normally do MIDI processing...
+	***************************************************************************/
+	audioBuffer.clear();
+	midiInputAdapter_.processBlock(midiBuffer, getSampleRate(), 0);
+
+	// Passby MIDI Message to MidiKeyboardState
+	midiKeyboardState_.processNextMidiBuffer(midiBuffer, 0, audioBuffer.getNumSamples(), true);
+
+	/***************************************************************************
+	* This is the place where you'd normally do audio processing...
+	***************************************************************************/
 	// In case we have more outputs than inputs, this code clears any output
 	// channels that didn't contain input data, (because these aren't
 	// guaranteed to be empty - they may contain garbage).
@@ -142,19 +154,15 @@ void MusicoAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::
 	// when they first compile a plugin, but obviously you don't need to keep
 	// this code if your algorithm always overwrites all the output channels.
 	for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-		buffer.clear(i, 0, buffer.getNumSamples());
+		audioBuffer.clear(i, 0, audioBuffer.getNumSamples());
 
-	midiKeyboardState.processNextMidiBuffer(midiMessages, 0, buffer.getNumSamples(), true);
-
-	// This is the place where you'd normally do the guts of your plugin's
-	// audio processing...
 	// Make sure to reset the state if your inner loop is processing
 	// the samples and the outer loop is handling the channels.
 	// Alternatively, you can process the samples with the channels
 	// interleaved by keeping the same state.
 	for (int channel = 0; channel < totalNumInputChannels; ++channel)
 	{
-		auto* channelData = buffer.getWritePointer(channel);
+		auto* channelData = audioBuffer.getWritePointer(channel);
 
 		// ..do something to the data...
 		juce::ignoreUnused(channelData);
@@ -198,5 +206,20 @@ juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 *********************************************************************************/
 juce::MidiKeyboardState& MusicoAudioProcessor::getKeyboardState()
 {
-	return midiKeyboardState;
+	return midiKeyboardState_;
+}
+
+std::vector<int> MusicoAudioProcessor::getActiveNotes() const
+{
+	return noteTracker_.getActiveNotes();
+}
+
+std::bitset<12> MusicoAudioProcessor::getPitchClassMask() const
+{
+	return noteTracker_.getPitchClassMask();
+}
+
+musico::core::ChordType MusicoAudioProcessor::matchChordMask(const std::bitset<12>& mask) const
+{
+	return chord_.match(mask);
 }

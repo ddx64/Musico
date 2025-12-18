@@ -26,11 +26,14 @@ MusicoAudioProcessorEditor::MusicoAudioProcessorEditor(MusicoAudioProcessor& p)
 	// UI components setup
 	midiKeyboard.setAvailableRange(21, 108); // A0 to C8
 
-	chordLabel.setFont(juce::Font(24.0f, juce::Font::bold));
+	chordMask.setFont(juce::Font(24.0f, juce::Font::bold));
+	chordMask.setJustificationType(juce::Justification::centred);
+	chordLabel.setFont(juce::Font(16.0f, juce::Font::bold));
 	chordLabel.setJustificationType(juce::Justification::centred);
 
 	// Mount components
 	addAndMakeVisible(midiKeyboard);
+	addAndMakeVisible(chordMask);
 	addAndMakeVisible(chordLabel);
 	//addAndMakeVisible(webViewPlaceHolder);
 
@@ -66,13 +69,19 @@ void MusicoAudioProcessorEditor::resized()
 	midiKeyboard.setKeyWidth(keyWidth);
 	midiKeyboard.setBounds(keyboardArea);
 
-	const int chordLabelHeight = 40;
-	auto topArea = area.removeFromBottom(chordLabelHeight);
-	chordLabel.setBounds(topArea);
+	const int chordMaskHeight = 40;
+	const int chordLabelHeight = 20;
+	auto maskArea = area.removeFromBottom(chordMaskHeight);
+	auto labelArea = area.removeFromBottom(chordLabelHeight);
+	chordMask.setBounds(maskArea);
+	chordLabel.setBounds(labelArea);
 
 }
 
 void MusicoAudioProcessorEditor::timerCallback()
 {
-	chordLabel.setText("CMaj7", juce::dontSendNotification);
+	std::bitset<12> pcm = audioProcessor.getPitchClassMask();
+	auto chordType = audioProcessor.matchChordMask(pcm);
+	chordMask.setText(pcm.to_string(), juce::dontSendNotification);
+	chordLabel.setText(musico::core::toString(chordType), juce::dontSendNotification);
 }

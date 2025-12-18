@@ -1,3 +1,4 @@
+
 /*
   ==============================================================================
 
@@ -15,74 +16,43 @@
 
 namespace musico::core
 {
-	//=============================================================================
-	// Constants & Names
-	//=============================================================================
-	using TimeRQP = double;					// DAW Relation Quantization Point in seconds
-	using TimeSeconds = double;				// Absolute time in seconds
-
-	using MidiNoteNumber = std::uint8_t;	// 0-127
-	using MidiVelocity = std::uint8_t;		// 0-127
-	using MidiChannel = std::uint8_t;		// 0-15
-
-	enum  class InputSourceKind :std::uint8_t { Ara, Audio, Midi };
-
-	enum class MidiEventType : std::uint8_t
+	//==============================================================================
+	/**
+	*/
+	struct MidiNoteEvent
 	{
-		NoteOn,
-		NoteOff,
-		ControlChange,
-		ProgramChange,
-		PitchBend
+		bool isNoteOn = false;
+		int noteNumber = 0;
+		int velocity = 0;
+		double timestamp = 0.0;
 	};
 
-	enum class ChordStructureType : std::uint8_t
+	class IMidiEventSink
 	{
-		Unknown,
-
-		Triad,
-		Seventh,
-		// TODO: Add more structures
+	public:
+		virtual ~IMidiEventSink() = default;
+		virtual void handleMidiNote(const MidiNoteEvent& e) = 0;
 	};
 
-	enum class ChordQualityType : std::uint8_t
+	//==============================================================================
+	/**
+	*/
+	struct ChordModelInput
 	{
-		Major,
-		Minor,
-		Diminished,
-		Augmented,
-		// TODO: Add more qualities
+		std::vector<int> midiNotes;
 	};
 
-	//=============================================================================
-	// Data Structures
-	//=============================================================================
-	struct MusicalTime
+	struct ChordModelOutput
 	{
+		std::string chordName;
+		int rootNote = -1;
+		double condidence = 0.0;
 	};
 
-	struct MidiEvent {
-		MidiEventType type;
-		int channel;		// MIDI channel
-		double timestamp;	// Time in seconds
-		int note;			// 0-127, For NoteOn and NoteOff
-		int velocity;		// 0-127, For NoteOn
-		int value;			// For ControlChange and PitchBend
-	};
-
-	struct PitchClassFrame
+	class IChordModel
 	{
-
-	};
-
-	struct ChordFrame
-	{
-		std::string symbol;
-		float confidence;
-	};
-
-	struct HarmonyAxis
-	{
-		std::vector<ChordFrame> chords;
+	public:
+		virtual ~IChordModel() = default;
+		virtual ChordModelOutput analyze(const ChordModelInput& input) = 0;
 	};
 }

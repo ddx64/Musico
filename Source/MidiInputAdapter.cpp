@@ -12,8 +12,10 @@
 
 namespace musico::io
 {
+	using musico::core::NoteTracker;
+
 	//==============================================================================
-	MidiInputAdapter::MidiInputAdapter()
+	MidiInputAdapter::MidiInputAdapter(NoteTracker& noteTracker) : noteTracker_(noteTracker)
 	{
 	}
 
@@ -22,4 +24,21 @@ namespace musico::io
 	}
 
 	//==============================================================================
+	void MidiInputAdapter::processBlock(const juce::MidiBuffer& midiBuffer, double sampleRate, int blockStartSample)
+	{
+		for (const auto mididata : midiBuffer)
+		{
+			const juce::MidiMessage msg = mididata.getMessage();
+
+			if (msg.isNoteOn())
+			{
+				noteTracker_.noteOn(msg.getNoteNumber());
+			}
+			else if (msg.isNoteOff())
+			{
+				noteTracker_.noteOff(msg.getNoteNumber());
+			}
+		}
+	}
+
 }

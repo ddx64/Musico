@@ -22,5 +22,7 @@ namespace musico::io
 	}
 
 	//==============================================================================
-
+	void AudioInputAdapter::processBlock(const juce::AudioBuffer<float>& audioBuffer, double sampleRate, int64_t blockStartSample)
+	{
+	}
 }

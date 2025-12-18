@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="NeRGiR" name="Musico" projectType="araaudioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20">
   <MAINGROUP id="CBC7Hb" name="Musico">
     <GROUP id="{E9494DD3-8427-630D-52A1-581E51108C25}" name="Source">
       <GROUP id="{FCE2BFB8-57F7-77DE-4C9A-BB75FFB1C9EE}" name="core">
+        <FILE id="ARJg5d" name="NoteTracker.cpp" compile="1" resource="0" file="Source/NoteTracker.cpp"/>
+        <FILE id="zCwlkq" name="NoteTracker.h" compile="0" resource="0" file="Source/NoteTracker.h"/>
+        <FILE id="YWwBnl" name="Chord.h" compile="0" resource="0" file="Source/Chord.h"/>
+        <FILE id="kLSXTO" name="Chord.cpp" compile="1" resource="0" file="Source/Chord.cpp"/>
+        <FILE id="J7eYVn" name="Context.h" compile="0" resource="0" file="Source/Context.h"/>
+        <FILE id="zgEQ1O" name="Context.cpp" compile="1" resource="0" file="Source/Context.cpp"/>
         <FILE id="RGWAiG" name="Types.h" compile="0" resource="0" file="Source/Types.h"/>
       </GROUP>
       <GROUP id="{C8ADB236-2182-CC7D-FA01-0A227AEFE052}" name="io">
-        <FILE id="VRiBIU" name="ARAInputAdapter.cpp" compile="1" resource="0"
-              file="Source/ARAInputAdapter.cpp"/>
-        <FILE id="D77XNS" name="ARAInputAdapter.h" compile="0" resource="0"
-              file="Source/ARAInputAdapter.h"/>
-        <FILE id="PGj74f" name="AudioInputAdapter.cpp" compile="1" resource="0"
-              file="Source/AudioInputAdapter.cpp"/>
-        <FILE id="ETzmew" name="AudioInputAdapter.h" compile="0" resource="0"
-              file="Source/AudioInputAdapter.h"/>
-        <FILE id="oIS65G" name="MidiInputAdapter.cpp" compile="1" resource="0"
-              file="Source/MidiInputAdapter.cpp"/>
         <FILE id="Os39Av" name="MidiInputAdapter.h" compile="0" resource="0"
               file="Source/MidiInputAdapter.h"/>
+        <FILE id="oIS65G" name="MidiInputAdapter.cpp" compile="1" resource="0"
+              file="Source/MidiInputAdapter.cpp"/>
+        <FILE id="ETzmew" name="AudioInputAdapter.h" compile="0" resource="0"
+              file="Source/AudioInputAdapter.h"/>
+        <FILE id="PGj74f" name="AudioInputAdapter.cpp" compile="1" resource="0"
+              file="Source/AudioInputAdapter.cpp"/>
+        <FILE id="D77XNS" name="ARAInputAdapter.h" compile="0" resource="0"
+              file="Source/ARAInputAdapter.h"/>
+        <FILE id="VRiBIU" name="ARAInputAdapter.cpp" compile="1" resource="0"
+              file="Source/ARAInputAdapter.cpp"/>
       </GROUP>
-      <GROUP id="{D051BA52-A1D7-A44E-5D82-7603FC48A0BB}" name="ui"/>
-      <GROUP id="{1E4A040D-81FF-A112-473F-B398F4538E7E}" name="harmony"/>
       <GROUP id="{E938B43B-CEF9-D561-5832-C29FA5F15C6C}" name="models">
-        <FILE id="irlZy0" name="FeatureExtractor.cpp" compile="1" resource="0"
-              file="Source/FeatureExtractor.cpp"/>
         <FILE id="lYrW3P" name="FeatureExtractor.h" compile="0" resource="0"
               file="Source/FeatureExtractor.h"/>
+        <FILE id="irlZy0" name="FeatureExtractor.cpp" compile="1" resource="0"
+              file="Source/FeatureExtractor.cpp"/>
       </GROUP>
+      <GROUP id="{D051BA52-A1D7-A44E-5D82-7603FC48A0BB}" name="ui"/>
       <GROUP id="{16290BCC-7963-57E6-CE22-6C93434045A7}" name="plugin">
-        <FILE id="dNr4zS" name="PluginARADocumentController.cpp" compile="1"
-              resource="0" file="Source/PluginARADocumentController.cpp"/>
         <FILE id="c3PZIC" name="PluginARADocumentController.h" compile="0"
               resource="0" file="Source/PluginARADocumentController.h"/>
-        <FILE id="OkwUsb" name="PluginARAPlaybackRenderer.cpp" compile="1"
-              resource="0" file="Source/PluginARAPlaybackRenderer.cpp"/>
+        <FILE id="dNr4zS" name="PluginARADocumentController.cpp" compile="1"
+              resource="0" file="Source/PluginARADocumentController.cpp"/>
         <FILE id="MU7Vpo" name="PluginARAPlaybackRenderer.h" compile="0" resource="0"
               file="Source/PluginARAPlaybackRenderer.h"/>
-        <FILE id="XzaA5k" name="PluginProcessor.cpp" compile="1" resource="0"
-              file="Source/PluginProcessor.cpp"/>
+        <FILE id="OkwUsb" name="PluginARAPlaybackRenderer.cpp" compile="1"
+              resource="0" file="Source/PluginARAPlaybackRenderer.cpp"/>
         <FILE id="OUVmy3" name="PluginProcessor.h" compile="0" resource="0"
               file="Source/PluginProcessor.h"/>
+        <FILE id="XzaA5k" name="PluginProcessor.cpp" compile="1" resource="0"
+              file="Source/PluginProcessor.cpp"/>
+        <FILE id="TCBfkQ" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
         <FILE id="Nt6bwX" name="PluginEditor.cpp" compile="1" resource="0"
               file="Source/PluginEditor.cpp"/>
-        <FILE id="TCBfkQ" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

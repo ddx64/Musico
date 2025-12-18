@@ -10,6 +10,9 @@
 
 #pragma once
 
+#include <JuceHeader.h>
+#include "NoteTracker.h"
+
 namespace musico::io
 {
 	//==============================================================================
@@ -18,13 +21,13 @@ namespace musico::io
 	class MidiInputAdapter
 	{
 	public:
-		explicit MidiInputAdapter();
+		explicit MidiInputAdapter(musico::core::NoteTracker&);
 		~MidiInputAdapter();
 
 		//==============================================================================
-		//void processHostMidiEvents(const HostMidiBuffer& buffer);
+		void processBlock(const juce::MidiBuffer&, double, int);
 
 	private:
-
+		musico::core::NoteTracker& noteTracker_;
 	};
 }

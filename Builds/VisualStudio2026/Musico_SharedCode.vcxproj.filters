@@ -823,13 +823,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ARAInputAdapter.cpp">
+    <ClCompile Include="..\..\Source\NoteTracker.cpp">
+      <Filter>Musico\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chord.cpp">
+      <Filter>Musico\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Context.cpp">
+      <Filter>Musico\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\AudioInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
+    <ClCompile Include="..\..\Source\ARAInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\FeatureExtractor.cpp">
@@ -4176,16 +4185,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\NoteTracker.h">
+      <Filter>Musico\Source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chord.h">
+      <Filter>Musico\Source\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Context.h">
+      <Filter>Musico\Source\core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Types.h">
       <Filter>Musico\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ARAInputAdapter.h">
+    <ClInclude Include="..\..\Source\MidiInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\AudioInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MidiInputAdapter.h">
+    <ClInclude Include="..\..\Source\ARAInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\FeatureExtractor.h">

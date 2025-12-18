@@ -34,6 +34,7 @@ private:
 
 	//==============================================================================
 	juce::MidiKeyboardComponent midiKeyboard;
+	juce::Label chordMask;
 	juce::Label chordLabel;
 	// TODO: Implement in feature
 	juce::Component webViewPlaceHolder;
