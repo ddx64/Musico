@@ -10,51 +10,44 @@
 
 #include "NoteTracker.h"
 
-namespace musico::core
+namespace musico::utils
 {
+	using musico::core::MidiNoteMask;
+	using musico::core::PitchClassMask;
+
 	//==============================================================================
-	NoteTracker::NoteTracker()
+	MidiNoteMask NoteTracker::getMidiNoteMask() const
 	{
+		return midiNoteMask_;
 	}
 
-	NoteTracker::~NoteTracker()
+	PitchClassMask NoteTracker::getPitchClassMask() const
 	{
+		return pitchClassMask_;
 	}
-
 	//==============================================================================
 	void NoteTracker::noteOn(int noteNumber)
 	{
-		notes_.set(noteNumber);
-		updatePitchClassMask();
+		midiNoteMask_.set(noteNumber);
+		updatePitchClassMask_();
 	}
 
 	void NoteTracker::noteOff(int noteNumber)
 	{
-		notes_.reset(noteNumber);
-		updatePitchClassMask();
+		midiNoteMask_.reset(noteNumber);
+		updatePitchClassMask_();
 	}
-
-	std::vector<int> NoteTracker::getActiveNotes() const
+	//==============================================================================
+	void NoteTracker::updatePitchClassMask_()
 	{
-		std::vector<int> out;
-		out.reserve(8);
-		for (int i = 0; i < 128; ++i)
-			if (notes_.test(i))
-				out.push_back(i);
-		return out;
-	}
+		PitchClassMask mask{ 0 };
 
-	std::bitset<12> NoteTracker::getPitchClassMask() const
-	{
-		return std::bitset<12>(pitchClassMask_.load(std::memory_order_relaxed));
-	}
+		for (int i = 0;i < 128;++i)
+		{
+			if (midiNoteMask_.test(i))
+				mask.set(i % 12);
+		}
 
-	void NoteTracker::updatePitchClassMask()
-	{
-		uint16_t mask = 0;
-		for (int i = 0; i < 128; ++i)
-			if (notes_.test(i))
-				mask |= (1u << (i % 12));
-		pitchClassMask_.store(mask, std::memory_order_relaxed);
+		pitchClassMask_ = mask;
 	}
 }

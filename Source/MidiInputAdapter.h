@@ -21,13 +21,13 @@ namespace musico::io
 	class MidiInputAdapter
 	{
 	public:
-		explicit MidiInputAdapter(musico::core::NoteTracker&);
+		explicit MidiInputAdapter(musico::utils::NoteTracker&);
 		~MidiInputAdapter();
 
 		//==============================================================================
 		void processBlock(const juce::MidiBuffer&, double, int);
 
 	private:
-		musico::core::NoteTracker& noteTracker_;
+		musico::utils::NoteTracker& noteTracker_;
 	};
 }

@@ -5,8 +5,14 @@
     <Filter Include="Musico\Source\core">
       <UniqueIdentifier>{C7E0EC65-4B15-3980-9EE5-15A61850D560}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Musico\Source\utils">
+      <UniqueIdentifier>{0AED1D00-4AB6-D22A-EDB4-87252AC77BBF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Musico\Source\io">
       <UniqueIdentifier>{2BC1439F-C4C0-69CE-C8EE-D7077648905D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Musico\Source\middleware">
+      <UniqueIdentifier>{AAC62E05-840A-353C-9205-4A7A432D1F40}</UniqueIdentifier>
     </Filter>
     <Filter Include="Musico\Source\models">
       <UniqueIdentifier>{7F89CBE8-64E5-9C1C-CA1A-6B07847A28DF}</UniqueIdentifier>
@@ -823,14 +829,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\NoteTracker.cpp">
+    <ClCompile Include="..\..\Source\PitchInterpreter.cpp">
       <Filter>Musico\Source\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Chord.cpp">
+    <ClCompile Include="..\..\Source\MusicoTypes.cpp">
       <Filter>Musico\Source\core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Context.cpp">
       <Filter>Musico\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NoteTracker.cpp">
+      <Filter>Musico\Source\utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MidiInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
@@ -840,6 +849,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\ARAInputAdapter.cpp">
       <Filter>Musico\Source\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\JazzInterpreter.cpp">
+      <Filter>Musico\Source\middleware</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\FeatureExtractor.cpp">
       <Filter>Musico\Source\models</Filter>
@@ -4185,17 +4197,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\NoteTracker.h">
+    <ClInclude Include="..\..\Source\PitchInterpreter.h">
       <Filter>Musico\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Chord.h">
+    <ClInclude Include="..\..\Source\MusicoTypes.h">
       <Filter>Musico\Source\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Context.h">
       <Filter>Musico\Source\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Types.h">
-      <Filter>Musico\Source\core</Filter>
+    <ClInclude Include="..\..\Source\NoteTracker.h">
+      <Filter>Musico\Source\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MidiInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
@@ -4205,6 +4217,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\ARAInputAdapter.h">
       <Filter>Musico\Source\io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\JazzInterpreter.h">
+      <Filter>Musico\Source\middleware</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\FeatureExtractor.h">
       <Filter>Musico\Source\models</Filter>

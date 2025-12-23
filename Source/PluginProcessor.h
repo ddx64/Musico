@@ -9,9 +9,9 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "Chord.h"
-#include "NoteTracker.h"
 #include "MidiInputAdapter.h"
+#include "JazzInterpreter.h"
+#include "NoteTracker.h"
 
 //==============================================================================
 /**
@@ -63,9 +63,10 @@ public:
 	*********************************************************************************/
 	juce::MidiKeyboardState& getKeyboardState();
 
-	std::vector<int> getActiveNotes() const;
-	std::bitset<12> getPitchClassMask() const;
-	musico::core::ChordType matchChordMask(const std::bitset<12>&)const;
+	musico::core::MidiNoteMask getMidiNoteMask() const;
+	musico::core::PitchClassMask getPitchClassMask() const;
+
+	std::vector<musico::core::ChordInterpretation> interpretChord(const musico::core::PitchClassMask&)const;
 
 private:
 	/*********************************************************************************
@@ -73,9 +74,9 @@ private:
 	*********************************************************************************/
 	juce::MidiKeyboardState midiKeyboardState_;
 
-	musico::core::Chord chord_;
-	musico::core::NoteTracker noteTracker_;
+	musico::utils::NoteTracker noteTracker_;
 	musico::io::MidiInputAdapter midiInputAdapter_{ noteTracker_ };
+	musico::middleware::JazzInterpreter jazzInterpreter_;
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MusicoAudioProcessor)

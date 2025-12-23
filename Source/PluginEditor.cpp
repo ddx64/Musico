@@ -26,20 +26,22 @@ MusicoAudioProcessorEditor::MusicoAudioProcessorEditor(MusicoAudioProcessor& p)
 	// UI components setup
 	midiKeyboard.setAvailableRange(21, 108); // A0 to C8
 
-	chordMask.setFont(juce::Font(24.0f, juce::Font::bold));
-	chordMask.setJustificationType(juce::Justification::centred);
-	chordLabel.setFont(juce::Font(16.0f, juce::Font::bold));
+	chordLabel.setFont(juce::Font(24.0f, juce::Font::bold));
 	chordLabel.setJustificationType(juce::Justification::centred);
+	chordMask.setFont(juce::Font(16.0f));
+	chordMask.setJustificationType(juce::Justification::centred);
+	midiMask.setFont(juce::Font(16.0f));
 
 	// Mount components
 	addAndMakeVisible(midiKeyboard);
-	addAndMakeVisible(chordMask);
 	addAndMakeVisible(chordLabel);
+	addAndMakeVisible(chordMask);
+	addAndMakeVisible(midiMask);
 	//addAndMakeVisible(webViewPlaceHolder);
 
 	// Global configurations
 	setSize(800, 200);
-	startTimerHz(20);
+	startTimerHz(120);
 }
 
 MusicoAudioProcessorEditor::~MusicoAudioProcessorEditor()
@@ -54,34 +56,37 @@ void MusicoAudioProcessorEditor::paint(juce::Graphics& g)
 
 	g.setColour(juce::Colours::white);
 	g.setFont(juce::FontOptions(15.0f));
-	g.drawFittedText("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+	g.drawFittedText("WebView Placeholder", getLocalBounds(), juce::Justification::centred, 1);
 }
 
 void MusicoAudioProcessorEditor::resized()
 {
-	// This is generally where you'll want to lay out the positions of any subcomponents in your editor..
+	// This is generally where you'll want to lay out the positions of any subcomponents in your editor
 	auto area = getLocalBounds();
 
 	const int keyboardHeight = 80;
+	const int chordLabelHeight = 40;
+	const int chordMaskHeight = 24;
+	const int midiMaskHeight = 24;
+
+	midiMask.setBounds(area.removeFromBottom(midiMaskHeight));
 	auto keyboardArea = area.removeFromBottom(keyboardHeight);
 	// Calculate key width based on white keys, assuming 52 white keys on a 88 keyboard
 	float keyWidth = keyboardArea.getWidth() / 52.0;
 	midiKeyboard.setKeyWidth(keyWidth);
 	midiKeyboard.setBounds(keyboardArea);
 
-	const int chordMaskHeight = 40;
-	const int chordLabelHeight = 20;
-	auto maskArea = area.removeFromBottom(chordMaskHeight);
-	auto labelArea = area.removeFromBottom(chordLabelHeight);
-	chordMask.setBounds(maskArea);
-	chordLabel.setBounds(labelArea);
-
+	chordMask.setBounds(area.removeFromBottom(chordMaskHeight));
+	chordLabel.setBounds(area.removeFromBottom(chordLabelHeight));
 }
 
 void MusicoAudioProcessorEditor::timerCallback()
 {
-	std::bitset<12> pcm = audioProcessor.getPitchClassMask();
-	auto chordType = audioProcessor.matchChordMask(pcm);
+	using namespace musico::core;
+	PitchClassMask pcm = audioProcessor.getPitchClassMask();
+	MidiNoteMask midm = audioProcessor.getMidiNoteMask();
+	auto chords = audioProcessor.interpretChord(pcm);
+	midiMask.setText(midm.to_string(), juce::dontSendNotification);
 	chordMask.setText(pcm.to_string(), juce::dontSendNotification);
-	chordLabel.setText(musico::core::toString(chordType), juce::dontSendNotification);
+	chordLabel.setText(toString(chords), juce::dontSendNotification);
 }

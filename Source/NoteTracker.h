@@ -10,12 +10,9 @@
 
 #pragma once
 
-#include <cstdint>
-#include <atomic>
-#include <bitset>
-#include <vector>
+#include "MusicoTypes.h"
 
-namespace musico::core
+namespace musico::utils
 {
 	//==============================================================================
 	/**
@@ -23,20 +20,23 @@ namespace musico::core
 	class NoteTracker
 	{
 	public:
-		explicit NoteTracker();
-		~NoteTracker();
+		NoteTracker() = default;
+		~NoteTracker() = default;
 
-		//==============================================================================
+		// ===== Read =====
+		musico::core::MidiNoteMask getMidiNoteMask() const;
+		musico::core::PitchClassMask getPitchClassMask() const;
+
+		// ===== Write =====
 		void noteOn(int);
 		void noteOff(int);
 
-		std::vector<int> getActiveNotes() const;
-		std::bitset<12> getPitchClassMask() const;
-
 	private:
-		std::bitset<128> notes_;
-		std::atomic<uint16_t> pitchClassMask_{ 0 };
+		// ===== Data =====
+		musico::core::MidiNoteMask midiNoteMask_;
+		musico::core::PitchClassMask pitchClassMask_;
 
-		void updatePitchClassMask();
+		// ===== Internal Methods =====
+		void updatePitchClassMask_();
 	};
 }

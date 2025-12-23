@@ -12,8 +12,7 @@
 
 namespace musico::io
 {
-	using musico::core::NoteTracker;
-
+	using musico::utils::NoteTracker;
 	//==============================================================================
 	MidiInputAdapter::MidiInputAdapter(NoteTracker& noteTracker) : noteTracker_(noteTracker)
 	{
@@ -22,7 +21,6 @@ namespace musico::io
 	MidiInputAdapter::~MidiInputAdapter()
 	{
 	}
-
 	//==============================================================================
 	void MidiInputAdapter::processBlock(const juce::MidiBuffer& midiBuffer, double sampleRate, int blockStartSample)
 	{
@@ -40,5 +38,4 @@ namespace musico::io
 			}
 		}
 	}
-
 }

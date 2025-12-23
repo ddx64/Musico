@@ -209,17 +209,17 @@ juce::MidiKeyboardState& MusicoAudioProcessor::getKeyboardState()
 	return midiKeyboardState_;
 }
 
-std::vector<int> MusicoAudioProcessor::getActiveNotes() const
+musico::core::MidiNoteMask MusicoAudioProcessor::getMidiNoteMask() const
 {
-	return noteTracker_.getActiveNotes();
+	return noteTracker_.getMidiNoteMask();
 }
 
-std::bitset<12> MusicoAudioProcessor::getPitchClassMask() const
+musico::core::PitchClassMask MusicoAudioProcessor::getPitchClassMask() const
 {
 	return noteTracker_.getPitchClassMask();
 }
 
-musico::core::ChordType MusicoAudioProcessor::matchChordMask(const std::bitset<12>& mask) const
+std::vector<musico::core::ChordInterpretation> MusicoAudioProcessor::interpretChord(const musico::core::PitchClassMask& mask) const
 {
-	return chord_.match(mask);
+	return jazzInterpreter_.interpret(mask);
 }
